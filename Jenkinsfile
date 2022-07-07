@@ -1,12 +1,6 @@
 
 pipeline {
-    agent {
-        docker {
-            image 'python:3.10.1-alpine'
-            args '-p 3000:3000 -p 5000:5000'
-            args '-u 0:0'
-        }
-    }
+    agent { docker { image 'python:3.10.1-alpine' } }
     parameters {
         string(name: 'repoName', description: 'Type Helm Repo Name to list the artifacts to remove', defaultValue: 'xtime-helm-local')
         string(name: 'itemName', description: 'Type Helm Item Name to remove', defaultValue: 'consumer' )
@@ -52,3 +46,4 @@ pipeline {
 //         }
 //     }
 // }
+// https://github.com/jenkinsci/docker/blob/master/README.md
