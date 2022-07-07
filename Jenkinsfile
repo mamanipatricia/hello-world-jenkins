@@ -17,7 +17,7 @@ pipeline {
             }
             steps {
                 script {
-                    def cmdArray = ["python", "./remove-artifacts.py", params.repoName, params.itemName, env.ARTIFACTORY_API_KEY]
+                    def cmdArray = ["python", "remove-artifacts.py", params.repoName, params.itemName, env.ARTIFACTORY_API_KEY]
                     def proc = cmdArray.execute()
                     proc.waitFor()
                     println "finished...!"
