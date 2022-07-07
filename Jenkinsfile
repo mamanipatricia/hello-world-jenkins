@@ -1,6 +1,10 @@
 
 pipeline {
-    agent { docker { image 'python:3.10.1-alpine' } }
+    agent {
+        docker {
+            image 'python:3.10.1-alpine'
+        }
+    }
     parameters {
         string(name: 'repoName', description: 'Type Helm Repo Name to list the artifacts to remove', defaultValue: 'xtime-helm-local')
         string(name: 'itemName', description: 'Type Helm Item Name to remove', defaultValue: 'consumer' )
@@ -15,6 +19,7 @@ pipeline {
                 script {
                     sh "ls"
                     sh "pwd"
+                    sh "/usr/bin/python --version"
                     def cmdArray = ["python", "./remove-artifacts.py", params.repoName, params.itemName, env.ARTIFACTORY_API_KEY]
                     def proc = cmdArray.execute()
                     proc.waitFor()
