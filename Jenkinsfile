@@ -16,7 +16,7 @@ pipeline {
                     sh "ls"
                     sh "pwd"
                     // sh "/usr/bin/python --version"
-                    sh "sudo ./test.sh"
+                    sh "./test.sh"
                     // def cmdArray = ["python", "./remove-artifacts.py", params.repoName, params.itemName, env.ARTIFACTORY_API_KEY]
                     // def proc = cmdArray.execute()
                     // proc.waitFor()
