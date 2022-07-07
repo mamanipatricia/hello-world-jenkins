@@ -1,6 +1,6 @@
 
 pipeline {
-    agent any
+    agent { docker { image 'python:3.10.1-alpine' } }
     parameters {
         string(name: 'repoName', description: 'Type Helm Repo Name to list the artifacts to remove', defaultValue: 'xtime-helm-local')
         string(name: 'itemName', description: 'Type Helm Item Name to remove', defaultValue: 'consumer' )
@@ -28,3 +28,7 @@ pipeline {
 
     }
 }
+
+// timeout(time: 2, unit: “HOURS”) {
+    // input message: ‘Approve Deploy?’, ok: ‘Yes’
+// }
