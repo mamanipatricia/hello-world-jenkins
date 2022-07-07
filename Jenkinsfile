@@ -1,11 +1,6 @@
 
 pipeline {
-    agent {
-        any
-        // docker {
-        //     image 'python:3.10.1-alpine'
-        // }
-    }
+    agent any
     parameters {
         string(name: 'repoName', description: 'Type Helm Repo Name to list the artifacts to remove', defaultValue: 'xtime-helm-local')
         string(name: 'itemName', description: 'Type Helm Item Name to remove', defaultValue: 'consumer' )
