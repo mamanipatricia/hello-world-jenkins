@@ -21,13 +21,14 @@ pipeline {
                     sh "ls"
                     sh "pwd"
                     sh "/usr/bin/python --version"
-                    def cmdArray = ["python", "./remove-artifacts.py", params.repoName, params.itemName, env.ARTIFACTORY_API_KEY]
-                    def proc = cmdArray.execute()
-                    proc.waitFor()
-                    println "finished...!"
-                    println "return code: ${ proc.exitValue()}"
-                    println "stderr: ${proc.err.text}"
-                    println "stdout: ${proc.in.text}"
+                    sh "./test.sh"
+                    // def cmdArray = ["python", "./remove-artifacts.py", params.repoName, params.itemName, env.ARTIFACTORY_API_KEY]
+                    // def proc = cmdArray.execute()
+                    // proc.waitFor()
+                    // println "finished...!"
+                    // println "return code: ${ proc.exitValue()}"
+                    // println "stderr: ${proc.err.text}"
+                    // println "stdout: ${proc.in.text}"
                 }
             }
         }
