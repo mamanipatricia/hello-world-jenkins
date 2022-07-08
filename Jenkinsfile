@@ -14,8 +14,8 @@ pipeline {
             }
             steps {
                 script {
-                    timeout(time: 1, unit: MINUTES”) {
-                        input message: ‘Approve Deploy?’, ok: ‘Yes’
+                    timeout(time: 10, unit: "MINUTES") {
+                        input message: 'Do you want to remove the artifacts?', ok: 'Yes'
                     }
 
                     sh "ls"
